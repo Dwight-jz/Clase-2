@@ -54,10 +54,10 @@ class UI{
         </div>
     </div>
     `;
-    
+ 
     producLista.appendChild(Element); //appendchild elemento fijo
     //resetear valores
-
+} 
     resetForm(){
         document.getElementById("Producto-formulario").reset();       
     }
@@ -73,12 +73,17 @@ class UI{
         div.className = `alert alert-${cssClass} `;
         div.appendChild(document.createTextNode(mensaje));
         //Mostrar en el DOM
-        const contenido = document.querySelector(".conteiner");
+        const contenido = document.querySelector(".container");
         const app = document.querySelector("#App");
         
         // insert message in the interfaz of user
-        
+        container.insertBefore(div, app);
+
+        // Remover el mensaje luego de 3 segundos
+
+        setTimeout(function(){
+            document.querySelector(".alert").remove();
+        }, 3000);
     }
 
     }
-}
